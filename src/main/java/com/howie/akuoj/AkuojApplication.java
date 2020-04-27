@@ -15,7 +15,7 @@ public class AkuojApplication {
     }
 
     @GetMapping("/")
-    public String hello(@RequestParam(value = "name", defaultValue = "AKUOJ") String name) {
+    public String hello(@RequestParam(value = "name", defaultValue = "AKUOJ!") String name) {
         return String.format("Hello %s!", name);
     }
 }
