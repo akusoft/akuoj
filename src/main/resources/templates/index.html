@@ -12,6 +12,12 @@
 
 <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
 
+<h1>hello word!</h1>
+
+<li th:each="list:${list}">
+    <h3 th:utext="${list.name}"></h3>
+</li>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -23,14 +29,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-<h1>hello word!</h1>
-
-<li th:each="list:${list}">
-    <h3 th:utext="${list.name}"></h3>
-</li>
-<h1>Welcome!</h1>
-
-<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
-
 </body>
 </html>
