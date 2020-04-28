@@ -14,6 +14,6 @@ public class AkuController {
 
     @RequestMapping(value = "/hello")
     public String hello() {
-        return "/index";
+        return "index";
     }
 }
