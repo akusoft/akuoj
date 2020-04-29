@@ -18,4 +18,4 @@ AKU Online Judge System, contains **ACM** and **CTF** functions.
 
 ## 参与指南
 
-具体内容请参考[参与指南](https://github.com/akusoft/akuoj/blob/master/CONTRIBUTING.md) 。
+具体内容请参考[参与指南](https://github.com/akusoft/akuoj/blob/dev/CONTRIBUTING.md) 。
