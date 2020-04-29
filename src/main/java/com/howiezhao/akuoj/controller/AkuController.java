@@ -28,6 +28,6 @@ public class AkuController {
         userList.add(user);
         userList.add(user1);
         model.addAttribute("list", userList);
-        return "/index";
+        return "index";
     }
 }
