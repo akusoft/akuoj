@@ -5,6 +5,8 @@
 ![Maven Version](https://img.shields.io/badge/Maven-v3.6.1-blue)
 [![GitHub Workflow Status (branch)](https://github.com/akusoft/akuoj/workflows/Build%20and%20deploy%20JAR%20app%20to%20Azure%20Web%20App%20-%20akuoj/badge.svg)](https://github.com/akusoft/akuoj/actions)
 [![Coverage Status](https://coveralls.io/repos/github/akusoft/akuoj/badge.svg?branch=master)](https://coveralls.io/github/akusoft/akuoj?branch=master)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/akusoft/akuoj.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/akusoft/akuoj/alerts/)
+[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/akusoft/akuoj.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/akusoft/akuoj/context:java)
 
 AKU Online Judge System, contains **ACM** and **CTF** functions.
 
