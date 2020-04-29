@@ -15,3 +15,7 @@ AKU Online Judge System, contains **ACM** and **CTF** functions.
 - 使用 [Spring Initializr](https://start.spring.io/) 初始化项目目录结构
 - 使用 [Thymeleaf](https://www.thymeleaf.org/) 作为模板引擎
 - 使用 [Spring Security](https://spring.io/projects/spring-security) 验证用户登录信息
+
+## 参与指南
+
+具体内容请参考[参与指南](https://github.com/akusoft/akuoj/blob/master/CONTRIBUTING.md) 。
