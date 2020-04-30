@@ -1,43 +1,31 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
-    <title>AKU OJ</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
     <link th:href="@{/css/login.css}" rel="stylesheet">
 </head>
-<!--<body>-->
-<!--<form th:action="@{/login}" method="post">-->
-<!--    <div><label> User Name : <input type="text" name="username"/> </label></div>-->
-<!--    <div><label> Password: <input type="password" name="password"/> </label></div>-->
-<!--    <div><input type="submit" value="Sign In"/></div>-->
-<!--</form>-->
-<!--</body>-->
-<body class="text-center">
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
-<form class="form-signin" th:action="@{/login}" method="post">
-    <h1 class="h3 mb-3 font-weight-normal">登录</h1>
-    <label for="inputEmail" class="sr-only">用户名</label>
-    <input type="text" name="username" id="inputEmail" class="form-control" placeholder="用户名" required autofocus>
-    <label for="inputPassword" class="sr-only">密码</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="密码" required>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
-        </label>
+<body>
+<main layout:fragment="content">
+    <div th:if="${param.error}">
+        Invalid username and password.
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-</form>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+    <form class="form-signin" th:action="@{/login}" method="post">
+        <h1 class="h3 mb-3 font-weight-normal">登录</h1>
+        <label for="inputEmail" class="sr-only">用户名</label>
+        <input type="text" name="username" id="inputEmail" class="form-control" placeholder="用户名" required autofocus>
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="密码" required>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+</main>
 </body>
 </html>
