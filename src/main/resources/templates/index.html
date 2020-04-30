@@ -1,22 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring Security Example</title>
+    <title>AKU OJ</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Font Awesome CSS -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/index.css}" rel="stylesheet">
 </head>
 <body>
-<h1>Welcome!</h1>
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">AKU OJ</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">练习 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">比赛</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">社区</a>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-success my-2 my-sm-0" th:href="@{login}">登录</a>
+                <a class="btn btn-outline-success my-2 my-sm-0" href="#">注册</a>
+            </div>
+        </div>
+    </nav>
+</header>
 
-<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+<!-- Begin page content -->
+<main role="main" class="container">
+    <h1 class="mt-5">AKU Online Judge</h1>
+    <p class="lead">众所周知，计算机领域有两大类赛事：ACM 与 CTF，其中 ACM 是对“数据结构”、“算法设计与分析”等课程的考查，CTF 则是对“计算机网络”、“操作系统”、“计算机组成原理”等课程的综合检验。
+        AKU OJ 就是一个为我们安康学院 ACMer 和 CTFer 创建的在线评测平台。
+    </p>
+    <p class="lead">本项目使用 Java 语言编写，采用 Spring 框架开发，部署在 Azure 云上，并开源至 GitHub，如果您有相关开发背景，或对此感兴趣，欢迎加入我们，一起完善 AKU OJ。</p>
+    <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+    <li th:each="list:${list}">
+        <h3 th:utext="${list.name}"></h3>
+    </li>
+</main>
 
-<h1>hello word!</h1>
-
-<li th:each="list:${list}">
-    <h3 th:utext="${list.name}"></h3>
-</li>
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">由 <a href="https://akusoft.github.io">AKU Soft</a> 强力驱动！</span>
+        <a href="https://github.com/akusoft/akuoj"><i class="fab fa-github"></i></a>
+    </div>
+</footer>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
