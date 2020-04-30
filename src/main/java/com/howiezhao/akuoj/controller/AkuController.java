@@ -1,6 +1,6 @@
 package com.howiezhao.akuoj.controller;
 
-import com.howiezhao.akuoj.dto.User;
+import com.howiezhao.akuoj.dao.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

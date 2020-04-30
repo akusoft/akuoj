@@ -1,4 +1,4 @@
-package com.howiezhao.akuoj.dto;
+package com.howiezhao.akuoj.dao;
 
 /**
  * @author LiMing
