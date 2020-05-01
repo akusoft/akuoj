@@ -1,6 +1,6 @@
 # AKU OJ
 
-![Java Version](https://img.shields.io/badge/Java-v1.8-blue)
+![JDK Version](https://img.shields.io/badge/JDK-v1.8-blue)
 ![Spring Version](https://img.shields.io/badge/Spring-v2.2.6-blue)
 ![Maven Version](https://img.shields.io/badge/Maven-v3.6.1-blue)
 [![GitHub Workflow Status (branch)](https://github.com/akusoft/akuoj/workflows/Build%20and%20deploy%20JAR%20app%20to%20Azure%20Web%20App%20-%20akuoj/badge.svg)](https://github.com/akusoft/akuoj/actions)
