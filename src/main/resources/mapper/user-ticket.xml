@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.howiezhao.akuoj.akuLogin.mapper.LoginTicketMapper">
+    <update id="updateStatusByUserId">
+        update login_ticket set status=#{status} where ticket=#{ticket}
+    </update>
+
+    <insert id="insertTicket" parameterType="com.howiezhao.akuoj.akuLogin.dao.LoginTicket" keyProperty="id">
+        INSERT INTO login_ticket (user_id, ticket, status, expired) VALUES (#{userId},#{ticket},#{status},#{expired})
+    </insert>
+
+    <select id="findLoginTicket" resultType="com.howiezhao.akuoj.akuLogin.dao.LoginTicket">
+        select * from login_ticket where ticket=#{ticket}
+    </select>
+
+    <insert id="intsertKaptcha" parameterType="com.howiezhao.akuoj.akuLogin.dao.EmailKaptcha" keyProperty="id">
+        INSERT INTO email_kaptcha (email, kaptcha, status, expired) VALUES (#{email},#{kaptcha},#{status},#{expired})
+    </insert>
+
+    <select id="selectKaptch" resultType="com.howiezhao.akuoj.akuLogin.dao.EmailKaptcha">
+        select * from email_kaptcha
+    </select>
+
+    <update id="updateEmailKapthch" parameterType="java.lang.Integer">
+        update email_kaptcha set kaptcha=#{kaptcha} ,expired=#{expired} where id=#{id}
+    </update>
+</mapper>

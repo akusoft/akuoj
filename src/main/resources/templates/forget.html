@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout}">
+<head>
+	<link th:href="@{/css/login.css}" rel="stylesheet">
+</head>
+<body>
+<main layout:fragment="content">
+	<!-- 内容 -->
+	<div class="main">
+		<div class="container pl-5 pr-5 pt-3 pb-3 mt-3 mb-3">
+			<form class="mt-5" th:action="@{/forget}" method="post">
+				<div class="form-group row">
+					<label for="your-email" class="col-sm-2 col-form-label text-right">邮箱:</label>
+					<div class="col-sm-10">
+						<input type="email" name="email" th:class="|form-control ${emailMsg!=null?'is-invalid':''}|" th:value="${param.email}" id="your-email" placeholder="请输入您的邮箱!" required>
+						<div class="invalid-feedback" th:utext="${emailMsg}">
+							该邮箱已被注册!
+						</div>
+					</div>
+				</div>
+				<div class="form-group row mt-4">
+					<label for="verifycode" class="col-sm-2 col-form-label text-right">验证码:</label>
+					<div class="col-sm-6">
+						<input type="text" name="kaptcha" th:class="|form-control ${kaptchaMsg!=null?'is-invalid':''}|" th:value="${param.kaptcha}" id="verifycode" placeholder="请输入验证码!">
+						<div class="invalid-feedback" th:text="${kaptchaMsg}">
+							验证码不正确!
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<a  href="javascript:sendKaptcha();" class="btn btn-info form-control">获取验证码</a>
+					</div>
+				</div>
+				<div class="form-group row mt-4">
+					<label for="your-password" class="col-sm-2 col-form-label text-right">新密码:</label>
+					<div class="col-sm-10">
+						<input type="password" name="password" th:class="|form-control ${passwordMsg!=null?'is-invalid':''}|" th:value="${param.password}" class="form-control" id="your-password" placeholder="请输入新的密码!" required>
+						<div class="invalid-feedback" th:utext="${passwordMsg}">
+							密码长度不能小于8位!
+						</div>
+					</div>
+				</div>
+				<div class="form-group row mt-4">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-10 text-center">
+						<button type="submit" class="btn btn-info text-white form-control">重置密码</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script>
+        function sendKaptcha() {
+            debugger;
+            var email=$("#your-email").val();
+            var path=window.location.href+"/sendKaptcha";
+            $.ajax({
+				url:path,
+				data:{email:email},
+				type:"post",
+				dataType:"json",
+				ansy:false,
+				success:function (data) {
+
+                }
+			})
+        }
+	</script>
+</main>
+</body>
+</html>
