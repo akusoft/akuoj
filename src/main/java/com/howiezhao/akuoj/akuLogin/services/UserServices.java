@@ -25,6 +25,8 @@ public interface UserServices {
 
     void updatepassword(int userId,String password);
 
+    User selectUserByUserName(String username);
+
 
 
 }

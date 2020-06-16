@@ -1,6 +1,5 @@
 package com.howiezhao.akuoj.akuLogin.controller;
 
-import com.google.code.kaptcha.Producer;
 import com.howiezhao.akuoj.akuLogin.dao.User;
 import com.howiezhao.akuoj.akuLogin.services.impl.RegisterServicesImpl;
 import com.howiezhao.akuoj.akuLogin.services.impl.UserServicesImpl;
@@ -48,8 +47,8 @@ public class LoginController implements AkuOjConstant {
     @Autowired
     private UserServicesImpl userServices;
 
-    @Autowired
-    private Producer producerKaptcha;
+    /*@Autowired
+    private Producer producerKaptcha;*/
 
     @Value("${server.servlet.context-path}")
     private String contextPath;
@@ -70,6 +69,11 @@ public class LoginController implements AkuOjConstant {
         return "login";
     }
 
+
+    @RequestMapping(value = "/profile",method = RequestMethod.GET)
+    public String profile(){
+        return "profile";
+    }
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public String register(){
         return "register";
@@ -116,7 +120,7 @@ public class LoginController implements AkuOjConstant {
         return "operate-result";
     }
 
-    @RequestMapping(value = "/kaptcha",method = RequestMethod.GET)
+    /*@RequestMapping(value = "/kaptcha",method = RequestMethod.GET)
     public void getKaptcha(HttpServletResponse response, HttpSession session){
 
         //生成验证码
@@ -136,7 +140,7 @@ public class LoginController implements AkuOjConstant {
             logger.error("验证码生成失败！",e.getMessage());
         }
 
-    }
+    }*/
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(String username,String password,Model model, String code,boolean remember,HttpSession session,HttpServletResponse response){
@@ -156,6 +160,7 @@ public class LoginController implements AkuOjConstant {
             Cookie cookie = new Cookie("ticket",map.get("ticket").toString());
             cookie.setPath(contextPath);
             cookie.setMaxAge(expried);
+            cookie.setSecure(true);
             response.addCookie(cookie);
             return "redirect:index";
         }else {

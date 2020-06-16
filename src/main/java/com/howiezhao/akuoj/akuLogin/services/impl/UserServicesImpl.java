@@ -102,4 +102,9 @@ public class UserServicesImpl implements UserServices {
         password=AkuOjUtils.md5(password+user.getSalt());
         userMapper.updatePassword(userId,password);
     }
+
+    @Override
+    public User selectUserByUserName(String username) {
+        return userMapper.selectUserByUserName(username);
+    }
 }

@@ -1,3 +1,4 @@
+/*
 package com.howiezhao.akuoj.config;
 
 import com.google.code.kaptcha.Producer;
@@ -8,11 +9,13 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Properties;
 
+*/
 /**
  * @Author: LiMing
  * @Date: 2020/3/4 15:50
  * @Description:
- **/
+ **//*
+
 @Configuration
 public class KaptChaConfig {
 
@@ -34,3 +37,4 @@ public class KaptChaConfig {
         return kaptcha;
     }
 }
+*/

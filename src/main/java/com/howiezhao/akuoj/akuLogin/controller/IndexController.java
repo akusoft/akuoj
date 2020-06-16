@@ -39,4 +39,9 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping(value = "/error",method = RequestMethod.GET)
+    public String ExpectionHandle(){
+        return "error/500";
+    }
+
 }
