@@ -54,18 +54,19 @@ public class RegisterServicesImpl implements RegisterServices,AkuOjConstant{
         Map<String, Object> map = new HashMap<>();
         if(user==null){
             new IllegalArgumentException("参数不能为空！！");
-        }
-        if(StringUtils.isBlank(user.getUsername())){
-            map.put("usernameMsg","账号不能为空！！");
-            return map;
-        }
-        if(StringUtils.isBlank(user.getPassword())){
-            map.put("passwordMsg","密码不能为空！！");
-            return map;
-        }
-        if(StringUtils.isBlank(user.getEmail())){
-            map.put("emailMsg","邮箱不能为空！！");
-            return map;
+        }else {
+            if(StringUtils.isBlank(user.getUsername())){
+                map.put("usernameMsg","账号不能为空！！");
+                return map;
+            }
+            if(StringUtils.isBlank(user.getPassword())){
+                map.put("passwordMsg","密码不能为空！！");
+                return map;
+            }
+            if(StringUtils.isBlank(user.getEmail())){
+                map.put("emailMsg","邮箱不能为空！！");
+                return map;
+            }
         }
         //验证账户是否已经注册
         User u = userMapper.selectUserByUserName(user.getUsername());
@@ -119,14 +120,15 @@ public class RegisterServicesImpl implements RegisterServices,AkuOjConstant{
         Map<String, Object> map = new HashMap<>();
         if(user==null){
             new IllegalArgumentException("参数不能为空！！");
-        }
-        if(StringUtils.isBlank(user.getEmail())){
-            map.put("emailMsg","邮箱不能为空！！");
-            return map;
-        }
-        if(StringUtils.isBlank(user.getKaptcha())){
-            map.put("kaptchaMsg","验证码不能为空！！");
-            return map;
+        }else {
+            if(StringUtils.isBlank(user.getEmail())){
+                map.put("emailMsg","邮箱不能为空！！");
+                return map;
+            }
+            if(StringUtils.isBlank(user.getKaptcha())){
+                map.put("kaptchaMsg","验证码不能为空！！");
+                return map;
+            }
         }
         //验证验证码是否有效
         EmailKaptcha emailKaptcha = loginTicketMapper.selectKaptch(user.getEmail());

@@ -40,7 +40,7 @@ public class SendMail {
             mimeMessageHelper.setText(content,true);
             javaMailSender.send(mimeMessage);
         } catch (MessagingException e) {
-            logger.error("发送失败",e.getMessage());
+            logger.error("发送失败 {}",e.getMessage());
         }
 
 

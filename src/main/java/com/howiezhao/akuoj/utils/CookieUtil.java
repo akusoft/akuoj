@@ -17,17 +17,17 @@ public class CookieUtil {
 
         if(request==null || StringUtils.isBlank(cookieName)){
             new IllegalArgumentException("参数不能为空！");
-        }
-
-        Cookie[] cookies = request.getCookies();
-        if(cookies!=null){
-            for (Cookie cookie : cookies) {
-                if(cookie.getName().equals(cookieName)){
-                    return cookie.getValue();
+        }else {
+            Cookie[] cookies = request.getCookies();
+            if(cookies!=null){
+                for (Cookie cookie : cookies) {
+                    if(cookie.getName().equals(cookieName)){
+                        return cookie.getValue();
+                    }
                 }
             }
-        }
 
+        }
         return null;
     }
 }

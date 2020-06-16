@@ -203,7 +203,7 @@ public class LoginController implements AkuOjConstant {
         try {
             handerImage.transferTo(file);
         } catch (IOException e) {
-            logger.error("文件上传失败！",e.getMessage());
+            logger.error("文件上传失败！{}",e.getMessage());
             new RuntimeException("上传文件失败，服务器异常",e);
         }
 
@@ -234,7 +234,7 @@ public class LoginController implements AkuOjConstant {
             }
         }
         catch (IOException e) {
-            logger.error("获取头像失败！",e.getMessage());
+            logger.error("获取头像失败！{}",e.getMessage());
             new RuntimeException("头像加载失败",e);
         }
 
