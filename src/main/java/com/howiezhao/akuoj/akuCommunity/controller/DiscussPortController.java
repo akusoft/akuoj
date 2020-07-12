@@ -6,6 +6,7 @@ import com.howiezhao.akuoj.akuCommunity.dao.DiscussPost;
 import com.howiezhao.akuoj.akuCommunity.dao.Page;
 import com.howiezhao.akuoj.akuCommunity.services.DiscussPortServices;
 import com.howiezhao.akuoj.akuCommunity.services.impl.CommentServicesImpl;
+import com.howiezhao.akuoj.akuCommunity.services.impl.LikeServicesImpl;
 import com.howiezhao.akuoj.akuLogin.dao.User;
 import com.howiezhao.akuoj.akuLogin.services.UserServices;
 import com.howiezhao.akuoj.utils.AkuOjConstant;
@@ -44,6 +45,9 @@ public class DiscussPortController implements AkuOjConstant {
     @Autowired
     private CommentServicesImpl commentServices;
 
+    @Autowired
+    private LikeServicesImpl likeServices;
+
 
 
     @RequestMapping(path = "/index",method = RequestMethod.GET)
@@ -54,10 +58,13 @@ public class DiscussPortController implements AkuOjConstant {
         page.setRows(discussPortServices.findDiscussPostRows(0));
         page.setPath("/community/communityIndex");
 
+
         List<DiscussPost> discussPosts = discussPortServices.selectAll(0,page.getOffset(),page.getLimit());
         List<Map<String, Object>> list = new ArrayList<>();
         for (DiscussPost discussPost : discussPosts) {
             Map<String, Object> map = new HashMap<>();
+            long likeCount = likeServices.getLikeCount(REPLY_POST, discussPost.getId());
+            map.put("likeCount",likeCount);
             map.put("user",userServices.selectUserById(discussPost.getUserId()));
             map.put("post",discussPost);
             list.add(map);
@@ -102,6 +109,8 @@ public class DiscussPortController implements AkuOjConstant {
         page.setPath("/community/discuss/detail/"+discussId);
         page.setRows(post.getCommentCount());
 
+        model.addAttribute("likeCount",likeServices.getLikeCount(REPLY_POST,discussId));
+        model.addAttribute("likeStatus",likeServices.getLikeStatus(REPLY_POST,discussId));
 
         List<Map<String, Object>> commentList = new ArrayList<>();
         //帖子回复
@@ -112,7 +121,8 @@ public class DiscussPortController implements AkuOjConstant {
                 Map<String, Object> pcom = new HashMap<>();
                 pcom.put("user",userServices.selectUserById(comment.getUserId()));
                 pcom.put("comment",comment);
-
+                pcom.put("likeCount",likeServices.getLikeCount(REPLY_POST,discussId));
+                pcom.put("likeStatus",likeServices.getLikeStatus(REPLY_POST,discussId));
                 //评论回复
                 List<Map<String, Object>> replyList = new ArrayList<>();
 
@@ -123,6 +133,8 @@ public class DiscussPortController implements AkuOjConstant {
                         Map<String, Object> rcom = new HashMap<>();
                         rcom.put("user",userServices.selectUserById(comment1.getUserId()));
                         rcom.put("replyComment",comment1);
+                        rcom.put("likeCount",likeServices.getLikeCount(REPLY_COMMNET,comment1.getId()));
+                        rcom.put("likeStatus",likeServices.getLikeStatus(REPLY_COMMNET,comment1.getId()));
                         //回复目标
                         User target=  comment1.getTargetId()==0?null:userServices.selectUserById(comment1.getTargetId());
                         rcom.put("target",target);

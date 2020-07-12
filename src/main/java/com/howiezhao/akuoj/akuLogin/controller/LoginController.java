@@ -1,5 +1,7 @@
 package com.howiezhao.akuoj.akuLogin.controller;
 
+import com.howiezhao.akuoj.akuCommunity.services.impl.FollowServicesImpl;
+import com.howiezhao.akuoj.akuCommunity.services.impl.LikeServicesImpl;
 import com.howiezhao.akuoj.akuLogin.dao.User;
 import com.howiezhao.akuoj.akuLogin.services.impl.RegisterServicesImpl;
 import com.howiezhao.akuoj.akuLogin.services.impl.UserServicesImpl;
@@ -15,10 +17,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
@@ -61,6 +60,12 @@ public class LoginController implements AkuOjConstant {
 
     @Autowired
     private HostHolder hostHolder;
+
+    @Autowired
+    private LikeServicesImpl likeServices;
+
+    @Autowired
+    private FollowServicesImpl followServices;
 
     private static final Logger logger= LoggerFactory.getLogger(LoginController.class);
 
@@ -145,13 +150,13 @@ public class LoginController implements AkuOjConstant {
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(String username,String password,Model model, String code,boolean remember,HttpSession session,HttpServletResponse response){
 
-        String kaptchacode = (String) session.getAttribute("kaptchacode");
+       /* String kaptchacode = (String) session.getAttribute("kaptchacode");
 
         //先判断验证码
         if(StringUtils.isBlank(kaptchacode) || StringUtils.isBlank(code)|| !kaptchacode.equalsIgnoreCase(code)){
             model.addAttribute("codeMsg","验证码不正确！！");
             return "login";
-        }
+        }*/
         int expried=remember?REMEMBER_EXPIRED_TIME:DEFAULT_EXPIRED_TIME;
 
         Map<String, Object> map = userServices.login(username, password, expried);
@@ -160,7 +165,9 @@ public class LoginController implements AkuOjConstant {
             Cookie cookie = new Cookie("ticket",map.get("ticket").toString());
             cookie.setPath(contextPath);
             cookie.setMaxAge(expried);
+/*
             cookie.setSecure(true);
+*/
             response.addCookie(cookie);
             return "redirect:index";
         }else {
@@ -292,6 +299,40 @@ public class LoginController implements AkuOjConstant {
             model.addAttribute("emailMsg",forget.get("emailMsg"));
             return "register";
         }
+    }
+
+    @RequestMapping(value = "/profile/{userId}",method = RequestMethod.GET)
+    public String profile(@PathVariable("userId") int userId,Model model){
+
+        User user = userServices.selectUserById(userId);
+        if(user==null){
+            throw new RuntimeException("用户不存在！！！");
+        }
+        model.addAttribute("user",user);
+
+
+        if(user!=null){
+            //关注数
+
+            long followeeCount = followServices.getFolloweeCount(userId, REPLY_USER);
+
+            model.addAttribute("followeeCount",followeeCount);
+
+            //粉丝数
+
+            long followerCount = followServices.getFollowerCount(REPLY_USER, userId);
+            model.addAttribute("followerCount",followerCount);
+
+            //是否已关注
+            boolean hasFollow=false;
+            if(hostHolder.getUser()!=null){
+                hasFollow=followServices.hasFollowee(hostHolder.getUser().getId(),REPLY_USER,userId);
+            }
+            model.addAttribute("hasFollow",hasFollow);
+        }
+        model.addAttribute("userLikeCount",likeServices.getEntityUserCount(userId));
+
+        return "profile";
     }
 
 }

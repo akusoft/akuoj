@@ -50,12 +50,11 @@ public class CommentServicesImpl implements CommentServices,AkuOjConstant {
 
         if(comment==null){
             new IllegalArgumentException("参数为空");
+        }else{
+            //添加评论
+            comment.setContent(HtmlUtils.htmlEscape(comment.getContent()));
+            comment.setContent(sensitiveFilter.filter(comment.getContent()));
         }
-
-        //添加评论
-        comment.setContent(HtmlUtils.htmlEscape(comment.getContent()));
-        comment.setContent(sensitiveFilter.filter(comment.getContent()));
-
         int rows = commentMapper.insertComment(comment);
 
         if(comment.getEntityType()==REPLY_POST){

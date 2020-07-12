@@ -48,6 +48,11 @@ public interface AkuOjConstant {
      */
     int REPLY_COMMNET=2;
 
+    /**
+     * 用户实体
+     */
+    int REPLY_USER=3;
+
 
 
 
