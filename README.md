@@ -7,6 +7,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/akusoft/akuoj/badge.svg?branch=master)](https://coveralls.io/github/akusoft/akuoj?branch=master)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/akusoft/akuoj.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/akusoft/akuoj/alerts/)
 [![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/akusoft/akuoj.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/akusoft/akuoj/context:java)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fakusoft%2Fakuoj.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fakusoft%2Fakuoj?ref=badge_shield)
 
 AKU Online Judge System, contains **ACM** and **CTF** functions.
 
@@ -20,3 +21,7 @@ AKU Online Judge System, contains **ACM** and **CTF** functions.
 ## 参与指南
 
 具体内容请参考[参与指南](https://github.com/akusoft/akuoj/blob/dev/CONTRIBUTING.md) 。
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fakusoft%2Fakuoj.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fakusoft%2Fakuoj?ref=badge_large)
