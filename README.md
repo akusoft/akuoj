@@ -18,6 +18,11 @@ AKU Online Judge System, contains **ACM** and **CTF** functions.
 - 使用 [Thymeleaf](https://www.thymeleaf.org/) 作为模板引擎
 - 使用 [Thymeleaf Layout Dialect](https://github.com/ultraq/thymeleaf-layout-dialect) 实现模板继承
 
+## 运行
+
+1. `docker-compose build`
+2. `docker-compose up`
+
 ## 参与指南
 
 具体内容请参考[参与指南](https://github.com/akusoft/akuoj/blob/dev/CONTRIBUTING.md) 。
