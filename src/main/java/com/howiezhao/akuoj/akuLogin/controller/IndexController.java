@@ -17,8 +17,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author: LiMing
- * @since: 2020/5/11 10:28
+ * @author LiMing
+ * @since 2020/5/11 10:28
  **/
 @Controller
 public class IndexController {

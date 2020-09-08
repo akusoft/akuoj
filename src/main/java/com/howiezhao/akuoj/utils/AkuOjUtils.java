@@ -9,9 +9,8 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * @Author: LiMing
- * @Date: 2020/3/3 17:20
- * @Description:
+ * @author LiMing
+ * @since 2020/3/3 17:20
  **/
 @Component
 public class AkuOjUtils {

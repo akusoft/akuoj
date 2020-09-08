@@ -4,8 +4,8 @@ import javax.persistence.Transient;
 import java.util.Date;
 
 /**
- * @author: LiMing
- * @since: 2020/5/11 10:08
+ * @author LiMing
+ * @since 2020/5/11 10:08
  **/
 public class User {
 

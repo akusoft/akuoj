@@ -23,8 +23,8 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * @author: LiMing
- * @since: 2020/5/11 17:22
+ * @author LiMing
+ * @since 2020/5/11 17:22
  **/
 @Service
 public class RegisterServicesImpl implements RegisterServices,AkuOjConstant{

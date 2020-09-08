@@ -12,9 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
- * @Author: LiMing
- * @Date: 2020/3/12 21:59
- * @Description:
+ * @author LiMing
+ * @since 2020/3/12 21:59
  **/
 @Component
 public class LoginRequiredInterceptor implements HandlerInterceptor {

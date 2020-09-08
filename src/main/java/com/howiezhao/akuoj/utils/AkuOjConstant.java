@@ -1,9 +1,8 @@
 package com.howiezhao.akuoj.utils;
 
 /**
- * @Author: LiMing
- * @Date: 2020/3/4 11:47
- * @Description:
+ * @author LiMing
+ * @since 2020/3/4 11:47
  **/
 public interface AkuOjConstant {
 

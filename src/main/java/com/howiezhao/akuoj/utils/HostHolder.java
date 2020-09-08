@@ -4,8 +4,8 @@ import com.howiezhao.akuoj.akuLogin.dao.User;
 import org.springframework.stereotype.Component;
 
 /**
- * @author: LiMing
- * @since: 2020/5/11 10:51
+ * @author LiMing
+ * @since 2020/5/11 10:51
  *
  **/
 @Component

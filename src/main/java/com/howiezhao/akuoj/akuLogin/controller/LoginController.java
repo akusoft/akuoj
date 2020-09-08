@@ -34,8 +34,8 @@ import java.io.OutputStream;
 import java.util.Map;
 
 /**
- * @author: LiMing
- * @since: 2020/5/11 12:49
+ * @author LiMing
+ * @since 2020/5/11 12:49
  **/
 @Controller
 public class LoginController implements AkuOjConstant {

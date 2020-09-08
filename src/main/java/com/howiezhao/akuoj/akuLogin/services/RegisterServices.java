@@ -5,8 +5,8 @@ import com.howiezhao.akuoj.akuLogin.dao.User;
 import java.util.Map;
 
 /**
- * @author: LiMing
- * @since: 2020/5/11 17:20
+ * @author LiMing
+ * @since 2020/5/11 17:20
  **/
 public interface RegisterServices {
 

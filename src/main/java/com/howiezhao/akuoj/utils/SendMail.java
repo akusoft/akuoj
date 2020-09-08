@@ -12,9 +12,8 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 /**
- * @Author: LiMing
- * @Date: 2020/3/3 11:19
- * @Description:
+ * @author LiMing
+ * @since 2020/3/3 11:19
  **/
 
 @Component

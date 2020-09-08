@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 /**
- * @author: LiMing
- * @since: 2020/5/11 10:31
+ * @author LiMing
+ * @since 2020/5/11 10:31
  **/
 
 public interface UserServices {

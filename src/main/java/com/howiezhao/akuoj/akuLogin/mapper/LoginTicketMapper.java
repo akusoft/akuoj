@@ -8,9 +8,8 @@ import org.apache.ibatis.annotations.Param;
 import javax.websocket.server.PathParam;
 
 /**
- * @Author: LiMing
- * @Date: 2020/3/8 22:55
- * @Description:
+ * @author LiMing
+ * @since 2020/3/8 22:55
  **/
 @Mapper
 public interface LoginTicketMapper {

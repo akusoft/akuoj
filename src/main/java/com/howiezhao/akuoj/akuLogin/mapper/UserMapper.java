@@ -5,8 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * @author: LiMing
- * @since: 2020/5/11 10:33
+ * @author LiMing
+ * @since 2020/5/11 10:33
  **/
 @Mapper
 public interface UserMapper {

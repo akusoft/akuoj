@@ -16,9 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
 /**
- * @Author: LiMing
- * @Date: 2020/3/10 18:05
- * @Description:
+ * @author LiMing
+ * @since 2020/3/10 18:05
  **/
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
